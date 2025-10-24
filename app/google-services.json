@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "111130441363",
+    "project_id": "expenses-artful-b",
+    "storage_bucket": "expenses-artful-b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111130441363:android:1a2a3b5a99e69694dc3f66",
+        "android_client_info": {
+          "package_name": "com.stuartfuljourneys.expensesartfulb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAIWxOpLzsk9PIaf8GJ5zJhABatG35U-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
