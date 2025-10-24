@@ -17,5 +17,7 @@
     <color name="blue3">#2196F3</color>
     <color name="your_light_primary">#FF3700B3</color>
     <color name="your_dark_primary">#BB86FC</color>
+    <color name="blue_background">#EAF4F6</color>
+    <color name="blue_header">#2281D0</color>
 
 </resources>

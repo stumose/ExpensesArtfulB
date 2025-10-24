@@ -17,28 +17,31 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SignUp_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Base_Setup"
             android:exported="false" />
         <activity
-            android:name=".Other"
+            android:name=".Other_Activity"
             android:exported="false" />
         <activity
-            android:name=".Expenses_LastTransactions"
+            android:name=".Expenses_LastTransactions_Activity"
             android:exported="false" />
         <activity
-            android:name=".Expenses_Enter"
+            android:name=".Expenses_Enter_Activity"
             android:exported="false" />
         <activity
-            android:name=".Main_menu"
+            android:name=".Main_menu_Activity"
             android:exported="false" />
         <activity
-            android:name=".SignIn_SignUp"
-            android:exported="false" />
-        <activity
-            android:name=".Loading"
+            android:name=".SignIn_SignUp_Activity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Loading_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,6 +49,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

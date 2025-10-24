@@ -11,6 +11,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 // BaseActivity.java
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -36,12 +38,12 @@ public abstract class BaseActivity extends AppCompatActivity {
             int id = item.getItemId();
             Context context = BaseActivity.this;
 
-            if (id == R.id.nav_menu && !(context instanceof Main_menu)) {
-                startActivity(new Intent(context, Main_menu.class));
-            } else if (id == R.id.nav_expenses && !(context instanceof Expenses_Enter)) {
-                    startActivity(new Intent(context, Expenses_Enter.class));
-            } else if (id == R.id.nav_expenses_graphs && !(context instanceof Other)) {
-                startActivity(new Intent(context, Other.class));
+            if (id == R.id.nav_menu && !(context instanceof Main_menu_Activity)) {
+                startActivity(new Intent(context, Main_menu_Activity.class));
+            } else if (id == R.id.nav_expenses && !(context instanceof Expenses_Enter_Activity)) {
+                    startActivity(new Intent(context, Expenses_Enter_Activity.class));
+            } else if (id == R.id.nav_expenses_graphs && !(context instanceof Other_Activity)) {
+                startActivity(new Intent(context, Other_Activity.class));
             }
 
             drawerLayout.closeDrawer(GravityCompat.START);
@@ -60,15 +62,19 @@ public abstract class BaseActivity extends AppCompatActivity {
         Context context = BaseActivity.this;
 
         if (id == R.id.action_home) {
-            if (!(context instanceof Main_menu)) {
-                startActivity(new Intent(context, Main_menu.class));
+            if (!(context instanceof Main_menu_Activity)) {
+                startActivity(new Intent(context, Main_menu_Activity.class));
             }
             return true;
         } else if (id == R.id.action_signout) {
             // Sign out logic — for now just redirect to SignInActivity
-            Intent intent = new Intent(context, SignIn_SignUp.class);
+
+            FirebaseAuth.getInstance().signOut();
+
+            Intent intent = new Intent(context, SignIn_SignUp_Activity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
             return true;
         } else if (id == R.id.back) {
             // 👈 Handle the Back button
