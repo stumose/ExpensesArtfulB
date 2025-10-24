@@ -1,10 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Expenses_Enter">
+    android:background="@color/blue_background"
+    tools:context=".Expenses_Enter_Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/material_dynamic_primary30"
+                app:menu="@menu/top_app_bar_menu"
+                app:navigationIcon="@drawable/ic_menu"
+                app:subtitle="Enter Expenses"
+                app:subtitleTextColor="?attr/colorOnPrimary"
+                app:title="Expenses"
+                app:titleTextColor="@color/white" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/textWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/jost_bold"
+            android:text="Let's do this "
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarOther" />
+
+        <TextView
+            android:id="@+id/textMemberUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jost_bold"
+            android:text="Member"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
+
+        <TextView
+            android:id="@+id/textMemberDiff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jost_bold"
+            android:gravity="center"
+            android:hint="        "
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/textMemberUp"
+            app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
+
+        <!-- DELETE the entire androidx.constraintlayout.widget.ConstraintLayout with the id "toggle_container" --><!-- ADD THIS standard Switch in its place -->
+        <Switch
+            android:id="@+id/switchSharedExp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:checked="true"
+            android:text="Shared Expense"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMemberUp"
+            android:track="@drawable/switch_track_selector" />
+
+        <TextView
+            android:id="@+id/textSpender"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/jost_bold"
+        android:gravity="center_vertical"
+        android:text="Buyer: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerName" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinnerName" />
+
+        <Spinner
+            android:id="@+id/spinnerName"
+            android:layout_width="0dp"  android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textSpender"
+            app:layout_constraintTop_toBottomOf="@+id/switchSharedExp" />
+
+        <EditText
+            android:id="@+id/editTextAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/jost_medium"
+            android:hint="Enter expense amount"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerName" />
+
+        <TextView
+            android:id="@+id/textViewDiscount"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jost_medium"
+            android:text="Discount %"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAmount" />
+
+        <EditText
+            android:id="@+id/editTextDiscount"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/jost_medium"
+            android:hint="%"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewDiscount"
+            app:layout_constraintBottom_toBottomOf="@id/textViewDiscount" />
+
+        <TextView
+            android:id="@+id/textSelectedCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/jost_medium"
+            android:text="Select a Category"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDiscount" />
+
+
+        <GridLayout
+            android:id="@+id/categoryGrid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="6"
+            android:columnOrderPreserved="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSelectedCategory">
+
+            <!-- Row 1 -->
+            <ImageButton
+                android:id="@+id/icon_groceries"
+                style="@style/CategoryIcon"
+                android:contentDescription="Groceries"
+                android:src="@drawable/ic_groceries"
+                app:tint="@color/red1" />
+
+            <ImageButton
+                android:id="@+id/icon_eating_out"
+                style="@style/CategoryIcon"
+                android:contentDescription="Eating Out"
+                android:src="@drawable/ic_food"
+                app:tint="#6B4915" />
+
+            <ImageButton
+                android:id="@+id/icon_utilities"
+                style="@style/CategoryIcon"
+                android:contentDescription="Utilities"
+                android:src="@drawable/ic_utilities"
+                app:tint="#C7B520" />
+
+            <ImageButton
+                android:id="@+id/icon_entertainment"
+                style="@style/CategoryIcon"
+                android:contentDescription="Entertainment"
+                android:src="@drawable/ic_entertainment"
+                app:tint="@color/purple500" />
+
+            <ImageButton
+                android:id="@+id/icon_car"
+                style="@style/CategoryIcon"
+                android:contentDescription="Car"
+                android:src="@drawable/ic_car"
+                app:tint="#494E4E" />
+
+            <ImageButton
+                android:id="@+id/icon_house"
+                style="@style/CategoryIcon"
+                android:contentDescription="House"
+                android:src="@drawable/ic_house"
+                app:tint="#A9A265" />
+
+            <ImageButton
+                android:id="@+id/icon_clothes"
+                style="@style/CategoryIcon"
+                android:contentDescription="Clothes"
+                android:src="@drawable/ic_clothes"
+                app:tint="@color/blue3" />
+
+            <ImageButton
+                android:id="@+id/icon_alcohol"
+                style="@style/CategoryIcon"
+                android:contentDescription="Alcohol"
+                android:src="@drawable/ic_alcohol"
+                app:tint="#EB643A" />
+
+            <ImageButton
+                android:id="@+id/icon_health"
+                style="@style/CategoryIcon"
+                android:contentDescription="Health"
+                android:src="@drawable/ic_medical"
+                app:tint="@color/green1" />
+
+            <ImageButton
+                android:id="@+id/icon_tech"
+                style="@style/CategoryIcon"
+                android:contentDescription="Tech"
+                android:src="@drawable/ic_computer"
+                app:tint="@color/material_dynamic_neutral50" />
+
+            <!-- Corrected icon_holidays -->
+            <ImageButton
+                android:id="@+id/icon_holidays"
+                style="@style/CategoryIcon"
+                android:contentDescription="Holidays"
+                android:src="@drawable/ic_holiday"
+                app:tint="@color/orange1" />
+
+            <!-- Corrected icon_other -->
+            <ImageButton
+                android:id="@+id/icon_other"
+                style="@style/CategoryIcon"
+                android:contentDescription="Other"
+                android:src="@drawable/ic_other"
+                app:tint="@color/black" />
+
+        </GridLayout>
+
+        <EditText
+            android:id="@+id/editTextNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/jost_medium"
+            android:hint="Notes"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoryGrid" />
+
+        <!-- ADDED THE SUBMIT BUTTON -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="16dp"
+            android:text="Submit Expense"
+            android:textSize="18sp"
+            android:backgroundTint="@color/material_dynamic_primary30"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextNote" />
+
+        <TextView
+            android:id="@+id/debug_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="#222"
+            android:fontFamily="monospace"
+            android:padding="8dp"
+            android:text="Debug Info:"
+            android:textColor="#00FF00"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -9,36 +9,42 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/ic_croissant_green"
         android:label="Expenses Artful"
-        android:roundIcon="@drawable/ic_croissant_green"
-        android:supportsRtl="true"
+
+    android:icon="@mipmap/ic_launcher"
+    android:roundIcon="@mipmap/ic_launcher_round"
+
+
+    android:supportsRtl="true"
         android:theme="@style/Theme.ExpensesArtfulB"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SignUp_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Base_Setup"
             android:exported="false" />
         <activity
-            android:name=".Other"
+            android:name=".Other_Activity"
             android:exported="false" />
         <activity
-            android:name=".Expenses_LastTransactions"
+            android:name=".Expenses_LastTransactions_Activity"
             android:exported="false" />
         <activity
-            android:name=".Expenses_Enter"
+            android:name=".Expenses_Enter_Activity"
             android:exported="false" />
         <activity
-            android:name=".Main_menu"
+            android:name=".Main_menu_Activity"
             android:exported="false" />
         <activity
-            android:name=".SignIn_SignUp"
-            android:exported="false" />
-        <activity
-            android:name=".Loading"
+            android:name=".SignIn_SignUp_Activity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Loading_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,6 +52,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

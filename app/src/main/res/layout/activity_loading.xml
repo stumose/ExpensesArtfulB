@@ -5,6 +5,48 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Loading">
+    android:background="@color/blue_background"
+    android:hapticFeedbackEnabled="true"
+    tools:context=".Loading_Activity">
+
+    <ImageView
+        android:id="@+id/imageIcon"
+        android:layout_width="128dp"
+        android:layout_height="157dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.407"
+        app:srcCompat="@drawable/ic_croissant_green" />
+
+    <TextView
+        android:id="@+id/loadingTextA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jost_bold"
+        android:text="Welcome"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageIcon" />
+
+    <TextView
+        android:id="@+id/loadingTextB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:fontFamily="@font/jost_bold"
+        android:text="The Expenses App Awaits"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loadingTextA" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
