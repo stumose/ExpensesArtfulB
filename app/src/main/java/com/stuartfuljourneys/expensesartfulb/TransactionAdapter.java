@@ -4,7 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
@@ -70,8 +73,22 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
                 textTimestamp.setText("No date");
             }
 
-            // For V2, we would add an OnClickListener here:
-            // itemView.setOnClickListener(v -> { ... show details ... });
-        }
+            // Set a click listener on the entire row view (itemView)
+            itemView.setOnClickListener(v -> {
+                String note = expense.getNote();
+
+                // Check if the note is null or empty
+                if (note != null && !note.trim().isEmpty()) {
+                    // If there is a note, show it in an AlertDialog
+                    new AlertDialog.Builder(itemView.getContext())
+                            .setTitle("Transaction Note")
+                            .setMessage(note)
+                            .setPositiveButton("OK", null) // "null" just closes the dialog
+                            .show();
+                } else {
+                    // If there is no note, show a brief message to the user
+                    Toast.makeText(itemView.getContext(), "No note for this transaction.", Toast.LENGTH_SHORT).show();
+                }
+            });        }
     }
 }
