@@ -25,7 +25,7 @@ import java.util.List;
 public class Expenses_LastTransactions_Activity extends BaseActivity {
 
     // --- UI Elements ---
-    private Spinner spinnerPeriodType, spinnerPeriodValue, spinnerCategory;
+    private Spinner spinnerPeriodType, spinnerPeriodValue, spinnerCategory, spinnerSharedStatus;
     private RecyclerView recyclerViewTransactions;
 
     // --- Firebase ---
@@ -52,6 +52,7 @@ public class Expenses_LastTransactions_Activity extends BaseActivity {
         spinnerPeriodType = findViewById(R.id.spinnerPeriodType);
         spinnerPeriodValue = findViewById(R.id.spinnerPeriodValue);
         spinnerCategory = findViewById(R.id.spinnerCategory);
+        spinnerSharedStatus = findViewById(R.id.spinnerSharedStatus);
         recyclerViewTransactions = findViewById(R.id.recyclerViewTransactions);
 
         // --- Initialize Firebase ---
@@ -151,6 +152,21 @@ public class Expenses_LastTransactions_Activity extends BaseActivity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
+        ArrayAdapter<CharSequence> sharedAdapter = ArrayAdapter.createFromResource(this,
+                R.array.shared_status_options, android.R.layout.simple_spinner_item);
+        sharedAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSharedStatus.setAdapter(sharedAdapter);
+        // The default selection is "Shared" (index 0), which is exactly what you want.
+
+        spinnerSharedStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                loadDataBasedOnFilters(); // Reload data when this filter changes
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
         // Set the initial state for the value spinner, which will trigger the first data load
         updatePeriodValueSpinner(spinnerPeriodType.getSelectedItem().toString());
     }
@@ -198,6 +214,7 @@ public class Expenses_LastTransactions_Activity extends BaseActivity {
         String type = spinnerPeriodType.getSelectedItem().toString();
         int value = Integer.parseInt(spinnerPeriodValue.getSelectedItem().toString());
         String category = spinnerCategory.getSelectedItem().toString();
+        String sharedStatus = spinnerSharedStatus.getSelectedItem().toString();
 
         // --- BUILD THE QUERY INCREMENTALLY ---
 
@@ -215,6 +232,13 @@ public class Expenses_LastTransactions_Activity extends BaseActivity {
             Log.d("TransactionsActivity", "Filtering by category: " + category);
         }
         // ===============================================================================
+
+        // ========== ADDED: Add the shared status filter ===========
+        if (!sharedStatus.equals("All")) {
+            boolean isShared = sharedStatus.equals("Shared"); // "Shared" -> true, "Not Shared" -> false
+            //Log.d("QueryDebug", "Building query with isShared = " + isShared);
+            query = query.whereEqualTo("isShared", isShared);
+        }
 
         // 3. Add the final time/limit filter and the essential ordering.
         if (type.equals("Transactions")) {

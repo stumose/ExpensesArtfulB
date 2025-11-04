@@ -4,43 +4,34 @@ import com.google.firebase.firestore.ServerTimestamp;
 import java.util.Date;
 
 public class Expense {
-    // These variable names MUST match the field names in your Firestore documents
+    // --- Member Variables ---
+    // These names must exactly match your Firestore document fields.
     private String paidBy_nickname;
     private String category;
     private double finalAmount;
-    @ServerTimestamp // This tells Firestore to convert the server timestamp into a Java Date object
+    @ServerTimestamp
     private Date timestamp;
-    private String note; // For V2, when we make items clickable
+    private String note;
+    private Boolean isShared;
 
-    // IMPORTANT: You need an empty constructor for Firestore's automatic data conversion
+
+
+    // IMPORTANT: A public, empty constructor is REQUIRED for Firestore.
     public Expense() {}
 
-    public Expense(String paidBy_nickname, String category, double finalAmount, Date timestamp, String note) {
-        this.paidBy_nickname = paidBy_nickname;
-        this.category = category;
-        this.finalAmount = finalAmount;
-        this.timestamp = timestamp;
-        this.note = note;
-    }
 
     // --- Getters ---
-    public String getPaidBy_nickname() {
-        return paidBy_nickname;
-    }
+    // These methods allow other parts of your app to read the private variables.
 
-    public String getCategory() {
-        return category;
-    }
+    public String getPaidBy_nickname() {return paidBy_nickname; }
 
-    public double getFinalAmount() {
-        return finalAmount;
-    }
+    public String getCategory() {return category;  }
 
-    public Date getTimestamp() {
-        return timestamp;
-    }
+    public double getFinalAmount() {return finalAmount; }
 
-    public String getNote() {
-        return note;
-    }
+    public Date getTimestamp() {return timestamp; }
+
+    public String getNote() {return note; }
+
+    public Boolean isShared() {return isShared; }
 }

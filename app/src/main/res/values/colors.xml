@@ -20,5 +20,6 @@
     <color name="blue_background">#EAF4F6</color>
     <color name="blue_header">#2281D0</color>
     <color name="blue_general">@color/material_dynamic_primary30</color>
+    <color name="soft_red">#FFCDD2</color>
 
 </resources>

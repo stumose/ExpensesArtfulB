@@ -1,5 +1,6 @@
 package com.stuartfuljourneys.expensesartfulb;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -295,6 +296,8 @@ public class Expenses_Enter_Activity extends BaseActivity {
 
         boolean isShared = switchSharedExp.isChecked();
 
+        //String isSharedString = String.valueOf(isShared);
+
         Map<String, Object> expense = new HashMap<>();
         expense.put("householdId", this.householdId);
         expense.put("paidBy_uid", paidByUid);
@@ -304,6 +307,7 @@ public class Expenses_Enter_Activity extends BaseActivity {
         expense.put("finalAmount", finalAmount);
         expense.put("category", category);
         expense.put("isShared", isShared);
+        //expense.put("isShared", isSharedString);
         expense.put("note", note);
         expense.put("timestamp", FieldValue.serverTimestamp());
 
