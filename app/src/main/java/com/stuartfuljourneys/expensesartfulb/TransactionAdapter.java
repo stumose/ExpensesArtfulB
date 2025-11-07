@@ -44,6 +44,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
     public static class TransactionViewHolder extends RecyclerView.ViewHolder {
         private TextView textPayer, textCategory, textAmount, textTimestamp;
+        //private TextView debugSharedStatus;
         private ConstraintLayout transactionRowLayout;
 
         public TransactionViewHolder(@NonNull View itemView) {
@@ -53,6 +54,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             textAmount = itemView.findViewById(R.id.textAmount);
             textTimestamp = itemView.findViewById(R.id.textTimestamp);
             transactionRowLayout = itemView.findViewById(R.id.transaction_row_layout);
+
+            //debugSharedStatus = itemView.findViewById(R.id.debugSharedStatus);
         }
 
         public void bind(Expense expense) {
@@ -68,23 +71,19 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
                 textTimestamp.setText("No date");
             }
 
-            // ===================================================================
-            // ================== ADD THIS ONE DEBUGGING LINE ==================
-            // ===================================================================
-            Log.d("AdapterDebug", "Expense: " + expense.getCategory() + ", Amount: " + expense.getFinalAmount() + ", isShared Value: " + expense.isShared());
-            // ===================================================================
 
-            // ===================================================================
-            // === FINAL, SIMPLIFIED LOGIC TO FIX THE RED COLORING ISSUE ===
-            // ===================================================================
-            // This single 'if' condition checks for the one case where we want red.
-            // It reads: "If the isShared field is NOT NULL and its value is FALSE..."
-            if (expense.isShared() != null && !expense.isShared()) {
-                // The expense is explicitly marked as "Not Shared". Color it red.
+            // 1. Get the value just ONCE.
+            Boolean isSharedValue = expense.isShared();
+
+            // 2. Display the raw value on the screen for us to see.
+            //debugSharedStatus.setText("(Shared: " + isSharedValue + ")");
+
+            // 3. Use the value to set the color.
+            if (isSharedValue != null && !isSharedValue) {
+                // The value exists AND is false. Color it red.
                 transactionRowLayout.setBackgroundColor(itemView.getContext().getColor(R.color.soft_red));
             } else {
-                // In ALL other cases (isShared is true, or isShared is null/missing for old data),
-                // use the default transparent background. This is crucial for recycled views.
+                // In ALL other cases (true or null), use the default transparent background.
                 transactionRowLayout.setBackgroundColor(itemView.getContext().getColor(android.R.color.transparent));
             }
             // ===================================================================

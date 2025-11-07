@@ -1,5 +1,6 @@
 package com.stuartfuljourneys.expensesartfulb;
 
+import com.google.firebase.firestore.PropertyName;
 import com.google.firebase.firestore.ServerTimestamp;
 import java.util.Date;
 
@@ -32,6 +33,6 @@ public class Expense {
     public Date getTimestamp() {return timestamp; }
 
     public String getNote() {return note; }
-
+    @PropertyName("isShared")
     public Boolean isShared() {return isShared; }
 }
