@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        This file defines the colors that your app will use ONLY when the
+        phone's system setting is set to "Dark Theme".
+    -->
+
+    <!-- Core Brand & System Colors (for Dark Mode) -->
+
+
+    <!-- In dark mode, "black" text should be white and "white" backgrounds should be dark -->
+    <color name="black">#FFFFFFFF</color>
+    <color name="white">#FF121212</color>
+
+    <!-- The soft red for non-shared expenses. A standard Material Design color for errors on a dark surface. -->
+    <color name="soft_red">#CF6679</color>
+
+    <!-- Semantic Theme Colors (for Dark Mode) -->
+    <color name="app_background">#121212</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FF121212</color>
+    <color name="surface_color">#FFFFFFFF</color>
+    <color name="blue_general">@color/material_dynamic_primary30</color>
+    <color name="button_text_white">#FFFFFFFF</color>
+
+
+</resources>
