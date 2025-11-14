@@ -179,7 +179,9 @@ public class Expenses_LastTransactions_Activity extends BaseActivity {
         ArrayAdapter<CharSequence> valueAdapter;
         if (periodType.equals("Transactions")) {
             valueAdapter = ArrayAdapter.createFromResource(this, R.array.transaction_values, android.R.layout.simple_spinner_item);
-        } else { // For "Days", "Weeks", and "Months"
+        } else if (periodType.equals("Days")) { // For "Days"
+            valueAdapter = ArrayAdapter.createFromResource(this, R.array.time_values_days, android.R.layout.simple_spinner_item);
+        } else { // For "Weeks", and "Months"
             valueAdapter = ArrayAdapter.createFromResource(this, R.array.time_values, android.R.layout.simple_spinner_item);
         }
         valueAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

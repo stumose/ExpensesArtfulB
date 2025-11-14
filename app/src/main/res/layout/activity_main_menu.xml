@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_background"
+    android:background="@color/app_background"
     tools:context=".Main_menu_Activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,13 +27,13 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/material_dynamic_primary30"
+                android:background="@color/blue_general"
                 app:menu="@menu/top_app_bar_menu"
                 app:navigationIcon="@drawable/ic_menu"
                 app:subtitle="Menu"
-                app:subtitleTextColor="?attr/colorOnPrimary"
+                app:subtitleTextColor="@color/button_text_white"
                 app:title="Expenses"
-                app:titleTextColor="@color/white" />
+                app:titleTextColor="@color/button_text_white" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -58,6 +58,7 @@
             android:backgroundTint="@color/material_dynamic_primary30"
             android:fontFamily="@font/jost_medium"
             android:text="Enter Expenses"
+            android:textColor="@color/button_text_white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +72,7 @@
             android:backgroundTint="@color/material_dynamic_primary40"
             android:fontFamily="@font/jost_medium"
             android:text="Previous Transactions"
+            android:textColor="@color/button_text_white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +87,7 @@
             android:backgroundTint="@color/material_dynamic_primary50"
             android:fontFamily="@font/jost_medium"
             android:text="Insights"
+            android:textColor="@color/button_text_white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

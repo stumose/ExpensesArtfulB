@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_background"
+    android:background="@color/app_background"
     android:hapticFeedbackEnabled="true"
     tools:context=".Loading_Activity">
 
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/jost_bold"
         android:text="Welcome"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginTop="10sp"
         android:fontFamily="@font/jost_bold"
         android:text="The Expenses App Awaits"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

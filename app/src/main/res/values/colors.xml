@@ -22,4 +22,10 @@
     <color name="blue_general">@color/material_dynamic_primary30</color>
     <color name="soft_red">#FFCDD2</color>
 
+    <color name="app_background">#EAF4F6</color>
+    <color name="text_primary">#FF000000</color>
+    <color name="text_secondary">#FF000000</color>
+    <color name="surface_color">#FFFFFFFF</color>
+    <color name="button_text_white">#FFFFFFFF</color>
+
 </resources>

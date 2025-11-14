@@ -4,7 +4,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_background"
+    android:background="@color/app_background"
     tools:context=".Expenses_LastTransactions_Activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,9 +29,9 @@
                 app:menu="@menu/top_app_bar_menu"
                 app:navigationIcon="@drawable/ic_menu"
                 app:subtitle="Previous Transactions"
-                app:subtitleTextColor="?attr/colorOnPrimary"
+                app:subtitleTextColor="@color/button_text_white"
                 app:title="Expenses"
-                app:titleTextColor="@color/white" />
+                app:titleTextColor="@color/button_text_white" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
