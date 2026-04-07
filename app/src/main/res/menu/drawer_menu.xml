@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_menu"
+        android:title="Main Menu"
+        android:icon="@drawable/ic_croissant_green">
+    </item>
+    <item
+        android:id="@+id/nav_expenses"
+        android:title="Enter Expenses"
+        android:icon="@drawable/ic_croissant_green">
+    </item>
+    <item
+        android:id="@+id/nav_expenses_graphs"
+        android:title="   Graphs"
+        android:icon="@drawable/ic_croissant_green"/>
+    <item
+        android:id="@+id/nav_financial_update"
+        android:title="Financial Update" />
+    <item
+        android:id="@+id/nav_check_list"
+        android:title="Check List" />
+    <item
+        android:id="@+id/nav_holiday_details"
+        android:title="Holiday Details" />
+    <item
+        android:id="@+id/nav_other"
+        android:title="Other" />
+    <item
+        android:id="@+id/nav_test"
+        android:title="Test" />
+</menu>
+

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?><androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    tools:context=".Expenses_LastTransactions_Activity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/material_dynamic_primary30"
+                app:menu="@menu/top_app_bar_menu"
+                app:navigationIcon="@drawable/ic_menu"
+                app:subtitle="Previous Transactions"
+                app:subtitleTextColor="@color/button_text_white"
+                app:title="Expenses"
+                app:titleTextColor="@color/button_text_white" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Filter for Period Type -->
+        <Spinner
+            android:id="@+id/spinnerPeriodType"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerPeriodValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarOther" />
+
+        <!-- Filter for the Value -->
+        <Spinner
+            android:id="@+id/spinnerPeriodValue"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spinnerPeriodType"
+            app:layout_constraintTop_toTopOf="@+id/spinnerPeriodType" />
+
+        <!-- Filter for Category (now takes up the left 60% of the row) -->
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_weight="6"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerSharedStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerPeriodType" />
+
+        <!-- ============= NEW 'SHARED' FILTER SPINNER ============= -->
+        <Spinner
+            android:id="@+id/spinnerSharedStatus"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spinnerCategory"
+            app:layout_constraintTop_toTopOf="@+id/spinnerCategory" />
+        <!-- ======================================================= -->
+
+        <Spinner
+            android:id="@+id/spinnerHouseholdMember"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
+
+        <!-- RecyclerView shifted down to make room for the new spinner -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTransactions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerHouseholdMember"
+            tools:listitem="@layout/item_transactions" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Navigation drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/nav_header" />
+</androidx.drawerlayout.widget.DrawerLayout>

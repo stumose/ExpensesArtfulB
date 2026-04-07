@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="period_types">
+        <item>Transactions</item>
+        <item>Days</item>
+        <item>Weeks</item>
+        <item>Months</item></string-array>
+
+    <string-array name="transaction_values">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="time_values_days">
+        <item>7</item>
+        <item>14</item>
+        <item>30</item>
+        <item>60</item>
+        <item>90</item>
+    </string-array>
+
+    <string-array name="time_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>6</item>
+        <item>9</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="expense_categories">
+        <item>All Categories</item> <!-- The default option -->
+        <item>Groceries</item>
+        <item>Eating Out</item>
+        <item>Utilities</item>
+        <item>Entertainment</item>
+        <item>Car</item>
+        <item>House</item>
+        <item>Clothes</item>
+        <item>Alcohol</item>
+        <item>Health</item>
+        <item>Tech</item>
+        <item>Holidays</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="shared_status_options">
+        <item>Shared</item>
+        <item>Not Shared</item>
+        <item>All</item>
+    </string-array>
+
+</resources>

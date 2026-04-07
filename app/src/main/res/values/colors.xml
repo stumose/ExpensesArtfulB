@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple200">#FFBB86FC</color>
+    <color name="purple500">#FF6200EE</color>
+    <color name="purple700">#FF3700B3</color>
+    <color name="teal200">#FF03DAC5</color>
+    <color name="teal700">#FF018786</color>
+    <color name="green1">#FF1ABC41</color>
+    <color name="green2">#48C733</color>
+    <color name="green3">#67CC6A</color>
+    <color name="green4">#A5D6A7</color>
+    <color name="amber4">#FFD54F</color>
+    <color name="red1">#FFCE2008</color>
+    <color name="orange1">#FFA500</color>
+    <color name="blue3">#2196F3</color>
+    <color name="your_light_primary">#FF3700B3</color>
+    <color name="your_dark_primary">#BB86FC</color>
+    <color name="blue_background">#EAF4F6</color>
+    <color name="blue_header">#2281D0</color>
+    <color name="blue_general">@color/material_dynamic_primary30</color>
+    <color name="soft_red">#FFCDD2</color>
+
+    <color name="app_background">#EAF4F6</color>
+    <color name="text_primary">#FF000000</color>
+    <color name="text_secondary">#FF000000</color>
+    <color name="surface_color">#FFFFFFFF</color>
+    <color name="button_text_white">#FFFFFFFF</color>
+
+</resources>
